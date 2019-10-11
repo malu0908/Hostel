@@ -2,7 +2,7 @@ package payment;
 
 import java.time.LocalDate;
 
-public class CreditCardPayment {
+public class CreditCardPayment extends Payment {
 	private double amount;
 	private String issuer;
 	private String number;

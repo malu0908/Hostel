@@ -1,6 +1,6 @@
 package payment;
 
-public class CheckPayment {
+public class CheckPayment extends Payment {
 	private String bankId;
 	private String bankName;
 	private String branchNumber;
