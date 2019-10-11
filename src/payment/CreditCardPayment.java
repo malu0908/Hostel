@@ -22,4 +22,52 @@ public class CreditCardPayment extends Payment {
 	public boolean authorize() {
 		return true;
 	}
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+	public String getIssuer() {
+		return issuer;
+	}
+
+	public void setIssuer(String issuer) {
+		this.issuer = issuer;
+	}
+
+	public String getNumber() {
+		return number;
+	}
+
+	public void setNumber(String number) {
+		this.number = number;
+	}
+
+	public String getNameOnCard() {
+		return nameOnCard;
+	}
+
+	public void setNameOnCard(String nameOnCard) {
+		this.nameOnCard = nameOnCard;
+	}
+
+	public LocalDate getExperionDate() {
+		return experionDate;
+	}
+
+	public void setExperionDate(LocalDate experionDate) {
+		this.experionDate = experionDate;
+	}
+
+	public String getSecurityCode() {
+		return securityCode;
+	}
+
+	public void setSecurityCode(String securityCode) {
+		this.securityCode = securityCode;
+	}
 }
