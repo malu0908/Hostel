@@ -1,5 +1,6 @@
 package hostel;
 import java.util.Set;
+import exceptions.*;
 
 public class Hostel {
 	public static final Hostel INSTANCE = new Hostel();
