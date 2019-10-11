@@ -5,6 +5,7 @@ public class CustomerNotFoundException extends Exception{
 	private String lastName;
 	
 	public CustomerNotFoundException(String message, String name, String lastName) {
+		super(message);
 		this.name = name;
 		this.lastName = lastName;
 	}

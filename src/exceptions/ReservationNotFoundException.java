@@ -5,6 +5,7 @@ public class ReservationNotFoundException extends Exception{
 	private String lastName;
 	
 	public ReservationNotFoundException(String message, String name, String lastName) {
+		super(message);
 		this.name = name;
 		this.lastName = lastName;
 	}
