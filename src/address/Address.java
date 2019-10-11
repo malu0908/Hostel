@@ -10,5 +10,19 @@ package adress;
  * @author ariela
  */
 public class Address {
+
+    private String address;
+    private String zipCode;
+    private String city;
+    private String state;
+    private String coutry;
     
+    public Address(String address, String zipCode, String city, String state, String coutry){
+        this.address = address;
+        this.city    = city;
+        this.coutry  = coutry;
+        this.state   = state;
+        this.zipCode = zipCode;
+        
+    }
 }
