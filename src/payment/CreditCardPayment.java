@@ -9,11 +9,13 @@ public class CreditCardPayment extends Payment {
 	private String nameOnCard;
 	private LocalDate experionDate;
 	private String securityCode;
+	
 	@Override
 	public String toString() {
-		return "CreditCardPayment [amount=" + amount + ", issuer=" + issuer
-				+ ", number=" + number +", nameOnCard="
-				+ nameOnCard + ", experionDate=" + experionDate
+		return "CreditCardPayment [Price = " + super.amount + " Payment date = " + super.dateTime 
+				+ " amount = " + amount + ", issuer = " + issuer
+				+ ", number = " + number +", nameOnCard = "
+				+ nameOnCard + ", experionDate = " + experionDate
 				+ ", securityCode=" + securityCode + "]";
 	}
 	

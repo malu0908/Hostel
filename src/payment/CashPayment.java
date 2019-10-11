@@ -6,6 +6,7 @@ public class CashPayment extends Payment{
 	
 	@Override
 	public String toString() {
-		return "CashPayment [amountTendered=" + amountTendered + "]";
+		return "CashPayment [Price = " + super.amount + "Payment date = " + super.dateTime 
+				+ "amountTendered=" + amountTendered + "]";
 	}
 }

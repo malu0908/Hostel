@@ -7,7 +7,8 @@ public class CheckPayment extends Payment {
 	
 	@Override
 	public String toString() {
-		return "CheckPayment [bankId=" + bankId + ", bankName=" 
-				+ bankName + ", branchNumber=" + branchNumber + "]";
+		return "CheckPayment [Price = " + super.amount + " Payment date = " + super.dateTime 
+				+ " bankId = " + bankId + ", bankName = " 
+				+ bankName + ", branchNumber = " + branchNumber + "]";
 	}	
 }
