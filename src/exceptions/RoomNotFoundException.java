@@ -4,6 +4,7 @@ public class RoomNotFoundException extends Exception{
 	private int number;
 	
 	public RoomNotFoundException(String message, int number) {
+		super(message);
 		this.number = number;
 	}
 
