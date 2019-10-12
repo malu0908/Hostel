@@ -7,11 +7,11 @@ public class Payment {
 	protected LocalDateTime dateTime;
 	
 	public Payment createPayment(String type) {		
-		if(type == "CashPayment")
+		if(type.equals("CashPayment"))
 			return (Payment) new  CashPayment();
-		else if(type == "CheckPayment")
+		else if(type.equals("CheckPayment"))
 			return (Payment) new  CheckPayment();
-		else if(type == "CreditCardPayment")
+		else if(type.equals("CreditCardPayment"))
 			return (Payment) new  CreditCardPayment();
 		return new Payment();
 	}
