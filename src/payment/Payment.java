@@ -7,7 +7,13 @@ public class Payment {
 	protected LocalDateTime dateTime;
 	
 	public Payment createPayment(String type) {		
-		return null;
+		if(type == "CashPayment")
+			return (Payment) new  CashPayment();
+		else if(type == "CheckPayment")
+			return (Payment) new  CheckPayment();
+		else if(type == "CreditCardPayment")
+			return (Payment) new  CreditCardPayment();
+		return new Payment();
 	}
 
 	public double getAmount() {
