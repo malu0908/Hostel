@@ -25,4 +25,13 @@ public class Address {
         this.zipCode = zipCode;
         
     }
+    
+    @Override
+    public String toString(){         
+        return "address: "+ address + 
+               " zipCode: "+ zipCode + 
+               " city: "   + city +
+               " state: "  + state + 
+               " coutry:"  + coutry;
+    }
 }
