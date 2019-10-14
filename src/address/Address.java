@@ -68,10 +68,11 @@ public class Address {
     
     @Override
     public String toString(){         
-        return "address: "+ address + 
-               " zipCode: "+ zipCode + 
-               " city: "   + city +
-               " state: "  + state + 
-               " coutry:"  + coutry;
+        return "< Address: address = "+ address + 
+               " ,zipCode = "+ zipCode + 
+               " ,city = "   + city +
+               " ,state = "  + state + 
+               " ,coutry ="  + coutry +
+               " >";
     }
 }
