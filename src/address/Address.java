@@ -26,6 +26,46 @@ public class Address {
         
     }
     
+    public String getAddress(){
+        return address;
+    }
+    
+    public void setAddress(){
+        this.address = address;
+    }
+    
+    public String getCity(){
+        return city;
+    }
+    
+    public void setCity(){
+        this.city = city;
+    }
+    
+    public String getCoutry(){
+        return coutry;
+    }
+    
+    public void setCoutry(){
+        this.coutry = coutry;
+    }
+    
+    public String getState(){
+        return state;
+    }
+    
+    public void setSate(){
+        this.state = state;
+    }
+    
+    public String getZipCode(){
+        return zipCode;
+    }
+    
+    public void setZipCode(){
+        this.zipCode = zipCode;
+    }  
+    
     @Override
     public String toString(){         
         return "address: "+ address + 
