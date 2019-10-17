@@ -1,4 +1,5 @@
 package Reservation;
+
 import payment.Payment;
 import java.time.LocalDate;
 
@@ -8,10 +9,33 @@ public class Reservation {
 	private LocalDate reservationDate;
 	private LocalDate checkinDate;
 	private LocalDate checkoutDate;
+	private Payment payment;
+
+	public Reservation(int numberOfGuests, String reservationCode, String checkin, String checkout) {
+		this.numberOfGuests = numberOfGuests;
+		this.reservationCode = reservationCode;
+		this.reservationDate = LocalDate.now();
+
+		String str1[] = checkin.split("/");
+		int dayIn = Integer.parseInt(str1[1]);
+		int monthIn = Integer.parseInt(str1[0]);
+		int yearIn = Integer.parseInt(str1[2]);
+
+		this.checkinDate = LocalDate.of(yearIn, monthIn, dayIn);
+
+		String str2[] = checkin.split("/");
+		int dayOut = Integer.parseInt(str2[1]);
+		int monthOut = Integer.parseInt(str2[0]);
+		int yearOut = Integer.parseInt(str2[2]);
+
+		this.checkoutDate = LocalDate.of(yearOut, monthOut, dayOut);
+
+	}
 
 	Payment createPayment(String type) {
+		payment = new Payment();
+		return payment.createPayment(type);
 
-		return null;
 	}
 
 	double calculateTotalAmount() {
@@ -39,25 +63,24 @@ public class Reservation {
 		return reservationDate;
 	}
 
-	public void setReservationDate(LocalDate reservationDate) {
-		this.reservationDate = reservationDate;
+	public void setReservationDate(int year, int month, int day) {
+		this.reservationDate = LocalDate.of(year, month, day);
 	}
 
 	public LocalDate getCheckinDate() {
 		return checkinDate;
 	}
 
-	public void setCheckinDate(LocalDate checkinDate) {
-		this.checkinDate = checkinDate;
+	public void setCheckinDate(int year, int month, int day) {
+		this.checkinDate = LocalDate.of(year, month, day);
 	}
 
 	public LocalDate getCheckoutDate() {
 		return checkoutDate;
 	}
 
-	public void setCheckoutDate(LocalDate checkoutDate) {
-		this.checkoutDate = checkoutDate;
+	public void setCheckoutDate(int year, int month, int day) {
+		this.checkoutDate = LocalDate.of(year, month, day);
 	}
-
-
+	
 }
