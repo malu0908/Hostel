@@ -13,27 +13,21 @@ public class Customer {
 	private Set<Reservation> reservations;
 
 	public Customer(String title) {
-		this.title = title;
-		reservations = new HashSet<>();
+		this.(title, null);
 	}
 
 	public Customer(String title, String firstname) {
-		this.title = title;
-		this.firstname = firstname;
-		reservations = new HashSet<>();
+		this(title, firstname, null)
 	}
 
 	public Customer(String title, String firstname, String lastname) {
-		this.title = title;
-		this.firstname = firstname;
-		this.lastname = lastname;
-		reservations = new HashSet<>();
+		this(title, firstname, lastname, null)
 	}
 
 	public Customer(String title, String firstname, String lastname, LocalDate birthday) {
 		this.title = title;
 		this.firstname = firstname;
-		this.lastname = lastname;
+		this.lastname = lastname;	
 		this.birthday = birthday;
 		reservations = new HashSet<>();
 	}

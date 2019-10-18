@@ -7,6 +7,19 @@ public class Room {
 
 	private int number;
 	private double dimension;
+	private DailyRate rate;
+	
+	public Room() {
+	    rate = new DailyRate(this.dimension * 0.2);
+	}
+	
+	public DailyRate getRate() {
+		return this.rate;	
+	}
+	
+	public void setRate(DailyRate rate) {
+		this.rate = rate;	
+	}
 
 	public int getNumber() {
 		return number;
@@ -32,6 +45,11 @@ public class Room {
 				return true;
 		}
 		return false;
+	}
+	
+	@Override
+	public String toString() {
+		return "< Room: number = " +  this.number + ", dimension = " + this.dimension + " >";
 	}
 
 }
