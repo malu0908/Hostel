@@ -40,12 +40,15 @@ public class Hostel {
     	   	
     	return true;
     }
-    
+     
     public boolean makeReservation(Customer customer, String rsDate, String checkIn, String checkOut)
     {
         return true;
     }
     
+    public boolean makePayment(double amountTendered, String typeOfPayment) {
+    	return true;
+    }
     
     public boolean createRoom(int number, double dimension)   
     {
