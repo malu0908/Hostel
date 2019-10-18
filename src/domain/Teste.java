@@ -34,7 +34,7 @@ public class Teste {
 		hostel.createRoom(2, 2000);
 		hostel.createRoom(3, 3000);
 
-//		adicionando quartos
+		//adicionando quartos
 		Room r = new Room();
 		r.setDimension(1500);
 		r.setNumber(5);

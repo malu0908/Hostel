@@ -11,24 +11,21 @@ public class Customer {
 	private Address address;
 
 	public Customer(String title) {
-		this.title = title;
+		this(title, null);
 	}
 
 	public Customer(String title, String firstname) {
-		this.title = title;
-		this.firstname = firstname;
+		this(title, firstname, null);
 	}
 
 	public Customer(String title, String firstname, String lastname) {
-		this.title = title;
-		this.firstname = firstname;
-		this.lastname = lastname;
+		this(title, firstname, lastname, null);
 	}
 
 	public Customer(String title, String firstname, String lastname, LocalDate birthday) {
 		this.title = title;
 		this.firstname = firstname;
-		this.lastname = lastname;
+		this.lastname = lastname;	
 		this.birthday = birthday;
 	}
 

@@ -33,5 +33,10 @@ public class Room {
 		}
 		return false;
 	}
+	
+	@Override
+	public String toString() {
+		return "< Room: number = " +  this.number + ", dimension = " + this.dimension + " >";
+	}
 
 }
