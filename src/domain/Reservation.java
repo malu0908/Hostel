@@ -1,6 +1,9 @@
 package domain;
 
 import java.time.LocalDate;
+import java.time.Period;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Reservation {
 	private String reservationCode;
@@ -9,12 +12,12 @@ public class Reservation {
 	private LocalDate checkinDate;
 	private LocalDate checkoutDate;
 	private Payment payment;
+	private ArrayList<Room> rooms = new ArrayList();
 
-	public Reservation()
-	{
-		
+	public Reservation() {
+
 	}
-	
+
 	public Reservation(int numberOfGuests, String reservationCode, String checkin, String checkout) {
 		this.numberOfGuests = numberOfGuests;
 		this.reservationCode = reservationCode;
@@ -43,8 +46,21 @@ public class Reservation {
 	}
 
 	double calculateTotalAmount() {
-		return 0.0;
+		int i = 0;
+		double sum = 0.0;
+		while (!rooms.isEmpty()) {
+			sum = sum + rooms.get(i).getRate().getPrice();
+		}
+		Period p = Period.between(this.checkinDate, this.checkoutDate);
+		return sum * p.getDays();
+	}
 
+	public ArrayList<Room> getRooms() {
+		return rooms;
+	}
+
+	public void addRooms(Room room) {
+		rooms.add(room);
 	}
 
 	public String getReservationCode() {
@@ -86,5 +102,5 @@ public class Reservation {
 	public void setCheckOutDate(LocalDate checkOutDate) {
 		this.checkoutDate = checkOutDate;
 	}
-	
+
 }
