@@ -39,11 +39,12 @@ public class Teste {
 		hostel.addRoom(s);
 		
 		//procurando room pelo numero
-		hostel.searchRoomByNumber(1);
-		hostel.searchRoomByNumber(2);
-		hostel.searchRoomByNumber(3);
-		hostel.searchRoomByNumber(5);
-		hostel.searchRoomByNumber(6);
+		try {
+			hostel.searchRoomByNumber(1);
+		} catch(RoomNotFoundException ex) {
+			System.out.println(ex.getMessage());
+		}
+		
 		try {
 			hostel.searchRoomByNumber(7);
 		} catch(RoomNotFoundException ex) {
@@ -51,9 +52,12 @@ public class Teste {
 		}
 
 		//procurando customer pelo nome
-		hostel.searchCustomerByName("Maria Luiza", "Fernandes");
-		hostel.searchCustomerByName("Otávio Augusto", "Faria");
-		hostel.searchCustomerByName("Luana de Jesus", "Carvalho");			
+		try {
+			hostel.searchCustomerByName("Maria Luiza", "Fernandes");
+		} catch(CustomerNotFoundException ex) {
+			System.out.println(ex.getMessage());
+		}
+		
 		try {
 			hostel.searchCustomerByName("Paulo Henrique", "de Oliveira");			
 		} catch(CustomerNotFoundException ex) {
@@ -61,9 +65,12 @@ public class Teste {
 		}
 		
 		//procurando reserva
+		try {
 		hostel.searchReservationByCustomerName("Maria Luiza", "Fernandes");
-		hostel.searchReservationByCustomerName("Luana de Jesus", "Carvalho");
-		hostel.searchReservationByCustomerName("Otávio Augusto", "Faria");
+		} catch(ReservationNotFoundException ex) {
+			System.out.println(ex.getMessage());
+		}
+		
 		try {
 			hostel.searchReservationByCustomerName("Julia", "Cabral");
 		} catch(ReservationNotFoundException ex) {
