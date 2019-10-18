@@ -14,12 +14,12 @@ public class Address {
     private String zipCode;
     private String city;
     private String state;
-    private String coutry;
+    private String country;
     
-    public Address(String address, String zipCode, String city, String state, String coutry){
+    public Address(String address, String zipCode, String city, String state, String country){
         this.address = address;
         this.city    = city;
-        this.coutry  = coutry;
+        this.country  = country;
         this.state   = state;
         this.zipCode = zipCode;
         
@@ -42,11 +42,11 @@ public class Address {
     }
     
     public String getCoutry(){
-        return coutry;
+        return country;
     }
     
     public void setCoutry(){
-        this.coutry = coutry;
+        this.country = country;
     }
     
     public String getState(){
@@ -71,7 +71,7 @@ public class Address {
                " ,zipCode = "+ zipCode + 
                " ,city = "   + city +
                " ,state = "  + state + 
-               " ,coutry ="  + coutry +
+               " ,coutry ="  + country +
                " >";
     }
 }
