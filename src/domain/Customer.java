@@ -1,6 +1,7 @@
 package domain;
 
 import java.time.LocalDate;
+import java.util.*;
 
 public class Customer {
 	private String title;
@@ -9,17 +10,18 @@ public class Customer {
 	private LocalDate birthday;
 	private String email;
 	private Address address;
+	private Set<Reservation> reservations;
 
 	public Customer(String title) {
-		this(title, null);
+		this.(title, null);
 	}
 
 	public Customer(String title, String firstname) {
-		this(title, firstname, null);
+		this(title, firstname, null)
 	}
 
 	public Customer(String title, String firstname, String lastname) {
-		this(title, firstname, lastname, null);
+		this(title, firstname, lastname, null)
 	}
 
 	public Customer(String title, String firstname, String lastname, LocalDate birthday) {
@@ -27,6 +29,7 @@ public class Customer {
 		this.firstname = firstname;
 		this.lastname = lastname;	
 		this.birthday = birthday;
+		reservations = new HashSet<>();
 	}
 
 	public String getTitle() {
@@ -77,17 +80,19 @@ public class Customer {
 	public void setAddress(String address, String zipCode, String city, String state, String country) {
 		this.address = new Address(address, zipCode, city, state, country);
 	}
+	
 
-	@Override
-	public boolean equals(Object obj) {
-		if (!(obj instanceof Customer))
-			return false;
-		Customer other = (Customer) obj;
-		if (!this.title.equals(other.title) || !this.firstname.equals(other.firstname)
-				|| !this.lastname.equals(other.lastname) || !this.birthday.equals(other.birthday)
-				|| !this.email.equals(other.email))
-			return false;
-		return true;
+	public Set<Reservation> getReservations() {
+		return reservations;
+	}
+
+	public void setReservations(Reservation reservation) {
+		this.reservations.add(reservation);
+	}
+
+
+	public boolean equals(String name, String lastName) {
+		return (this.firstname == name && this.lastname == lastName) ? true : false;
 	}
 
 	@Override
