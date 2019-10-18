@@ -1,7 +1,9 @@
-package Reservation;
+package domain;
 
-import payment.Payment;
 import java.time.LocalDate;
+import java.time.Period;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Reservation {
 	private String reservationCode;
@@ -10,6 +12,11 @@ public class Reservation {
 	private LocalDate checkinDate;
 	private LocalDate checkoutDate;
 	private Payment payment;
+	private ArrayList<Room> rooms = new ArrayList();
+
+	public Reservation() {
+
+	}
 
 	public Reservation(int numberOfGuests, String reservationCode, String checkin, String checkout) {
 		this.numberOfGuests = numberOfGuests;
@@ -23,7 +30,7 @@ public class Reservation {
 
 		this.checkinDate = LocalDate.of(yearIn, monthIn, dayIn);
 
-		String str2[] = checkin.split("/");
+		String str2[] = checkout.split("/");
 		int dayOut = Integer.parseInt(str2[1]);
 		int monthOut = Integer.parseInt(str2[0]);
 		int yearOut = Integer.parseInt(str2[2]);
@@ -39,8 +46,21 @@ public class Reservation {
 	}
 
 	double calculateTotalAmount() {
-		return 0.0;
+		int i = 0;
+		double sum = 0.0;
+		while (!rooms.isEmpty()) {
+			sum = sum + rooms.get(i).getRate().getPrice();
+		}
+		Period p = Period.between(this.checkinDate, this.checkoutDate);
+		return sum * p.getDays();
+	}
 
+	public ArrayList<Room> getRooms() {
+		return rooms;
+	}
+
+	public void addRooms(Room room) {
+		rooms.add(room);
 	}
 
 	public String getReservationCode() {
@@ -63,24 +83,24 @@ public class Reservation {
 		return reservationDate;
 	}
 
-	public void setReservationDate(int year, int month, int day) {
-		this.reservationDate = LocalDate.of(year, month, day);
+	public void setReservationDate(LocalDate reservationDate) {
+		this.reservationDate = reservationDate;
 	}
 
 	public LocalDate getCheckinDate() {
 		return checkinDate;
 	}
 
-	public void setCheckinDate(int year, int month, int day) {
-		this.checkinDate = LocalDate.of(year, month, day);
+	public void setCheckinDate(LocalDate checkInDate) {
+		this.checkinDate = checkInDate;
 	}
 
 	public LocalDate getCheckoutDate() {
 		return checkoutDate;
 	}
 
-	public void setCheckoutDate(int year, int month, int day) {
-		this.checkoutDate = LocalDate.of(year, month, day);
+	public void setCheckOutDate(LocalDate checkOutDate) {
+		this.checkoutDate = checkOutDate;
 	}
-	
+
 }
