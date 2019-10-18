@@ -66,7 +66,12 @@ public class Hostel {
         return true;
     }
     
-    public boolean makePayment(double amountTendered, String typeOfPayment) {
+    public boolean makePayment(double amountTendered,
+    		String typeOfPayment, Reservation reserv) throws PaymentInsufficientException{
+    	Payment payment = reserv.createPayment(typeOfPayment);
+    	payment.setAmount(reserv.calculateTotalAmount());
+    	if(amountTendered < payment.getAmount())
+    		throw new PaymentInsufficientException("Valor insuficiente para pagamento"); 
     	return true;
     }
     
