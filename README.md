@@ -1,5 +1,5 @@
 # Hostel
-> O sistema do Hostel faz as tarefas necessárias para um funcionamento de um albergue. As pessoas que desejarem fazer reservas no hostel em questão são cadastradas no sistema, da mesma forma quartos são cadastrados para que possam ser disponibilizados de acordo com a demanda. O sistema também oferece funcionalidades que cuidam do pagamento, dando a opção de três formas de se pagar.  
+> O sistema de Hostel faz as tarefas necessárias para um funcionamento de um albergue. As pessoas que desejarem fazer reservas no hostel em questão são cadastradas no sistema, da mesma forma quartos são cadastrados para que possam ser disponibilizados de acordo com a demanda. O sistema também oferece funcionalidades que cuidam do pagamento, dando a opção de três formas de se pagar.  
 
 A preocupação principal do sistema em questão é facilitar as tarefas diárias de um albergue, visto que elas podem se tornar repetitivas e cansativas. Além disso, conforme o crescimento do seu estabelecimento o gerenciamento manual das tarefas cotidianas acaba se tornando inviável. Portanto, tendo em vista todos os problemas que podem vir à tona não tendo um sistema que gerencie os dados e deixe mais automatizado a realização das tarefas, o sistema presente neste projeto oferece as funcionalidades para que esses problemas sejam evitados.
 
