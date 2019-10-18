@@ -1,3 +1,4 @@
+package room;
 public class DailyRate {
 	
 	private double price;
