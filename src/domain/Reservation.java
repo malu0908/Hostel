@@ -22,7 +22,7 @@ public class Reservation {
 
 		this.checkinDate = LocalDate.of(yearIn, monthIn, dayIn);
 
-		String str2[] = checkin.split("/");
+		String str2[] = checkout.split("/");
 		int dayOut = Integer.parseInt(str2[1]);
 		int monthOut = Integer.parseInt(str2[0]);
 		int yearOut = Integer.parseInt(str2[2]);
