@@ -1,4 +1,4 @@
-package Reservation;
+package reservation;
 
 import payment.Payment;
 import java.time.LocalDate;

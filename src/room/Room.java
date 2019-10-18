@@ -1,3 +1,4 @@
+package room;
 public class Room {
 	
 	private int number;
