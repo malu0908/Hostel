@@ -26,8 +26,14 @@ public class Teste {
 		hostel.createRoom(3, 3000);
 		
 		//adicionando quartos
-		hostel.addRoom(hostel.getRooms().get(0));
-		hostel.addRoom(hostel.getRooms().get(1));
-		hostel.addRoom(hostel.getRooms().get(2));
+		Room r = new Room();
+		r.setDimension(1500);
+		r.setNumber(5);
+		hostel.addRoom(r);
+		
+		Room s = new Room();
+		s.setDimension(1700.30);
+		s.setNumber(6);
+		hostel.addRoom(s);
 	}
 }
