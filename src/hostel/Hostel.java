@@ -1,6 +1,8 @@
 package hostel;
 import java.util.Set;
 import exceptions.*;
+import customer.*;
+import Reservation.*;
 
 public class Hostel {
 	public static final Hostel INSTANCE = new Hostel();
