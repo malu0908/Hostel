@@ -13,15 +13,15 @@ public class Customer {
 	private Set<Reservation> reservations;
 
 	public Customer(String title) {
-		this.(title, null);
+		this(title, null);
 	}
 
 	public Customer(String title, String firstname) {
-		this(title, firstname, null)
+		this(title, firstname, null);
 	}
 
 	public Customer(String title, String firstname, String lastname) {
-		this(title, firstname, lastname, null)
+		this(title, firstname, lastname, null);
 	}
 
 	public Customer(String title, String firstname, String lastname, LocalDate birthday) {
