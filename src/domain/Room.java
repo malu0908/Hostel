@@ -7,6 +7,19 @@ public class Room {
 
 	private int number;
 	private double dimension;
+	private DailyRate rate;
+	
+	public Room() {
+	    rate = new DailyRate();
+	}
+	
+	public DailyRate getRate() {
+		return this.rate;	
+	}
+	
+	public void setRate(DailyRate rate) {
+		this.rate = rate;	
+	}
 
 	public int getNumber() {
 		return number;
