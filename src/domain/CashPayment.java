@@ -1,4 +1,4 @@
-package payment;
+package domain;
 
 public class CashPayment extends Payment{
 	private double amountTendered;

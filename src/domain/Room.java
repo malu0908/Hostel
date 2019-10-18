@@ -1,4 +1,4 @@
-package room;
+package domain;
 public class Room {
 	
 	private int number;

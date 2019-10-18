@@ -1,4 +1,4 @@
-package exceptions;
+package domain;
 
 public class RoomNotFoundException extends Exception{
 	private int number;

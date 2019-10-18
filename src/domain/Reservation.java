@@ -1,6 +1,5 @@
-package reservation;
+package domain;
 
-import payment.Payment;
 import java.time.LocalDate;
 
 public class Reservation {

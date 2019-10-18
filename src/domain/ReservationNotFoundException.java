@@ -1,4 +1,4 @@
-package exceptions;
+package domain;
 
 public class ReservationNotFoundException extends Exception{
 	private String name;

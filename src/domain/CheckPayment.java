@@ -1,4 +1,4 @@
-package payment;
+package domain;
 
 public class CheckPayment extends Payment {
 	private String bankId;

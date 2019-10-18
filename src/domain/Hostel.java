@@ -1,9 +1,5 @@
-package hostel;
+package domain;
 import java.util.Set;
-import exceptions.*;
-import reservation.*;
-import customer.*;
-import room.*;
 
 public class Hostel {
 	public static final Hostel INSTANCE = new Hostel();
