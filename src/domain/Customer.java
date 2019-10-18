@@ -8,6 +8,7 @@ public class Customer {
 	private String lastname;
 	private LocalDate birthday;
 	private String email;
+	private Address address;
 
 	public Customer(String title) {
 		this.title = title;
@@ -69,6 +70,15 @@ public class Customer {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	public Address getAddress()
+	{
+		return address;
+	}
+	
+	public void setAddress(String address, String zipCode, String city, String state, String country) {
+		this.address = new Address(address, zipCode, city, state, country);
 	}
 
 	@Override
