@@ -108,7 +108,22 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "< Customer: title = " + title + " ,firstname = " + firstname + " ,lastname = " + lastname
-				+ " ,birthday = " + birthday + " ,email =" + email + " >";
+		String result =  "< Customer: title = " + title + " ,firstname = " + firstname + " ,lastname = " + lastname
+				+ " ,birthday = " + birthday + " ,email =" + email + " >" + "\n" +
+		"Reservas do(a) cliente " + getFirstname() + ": \n";
+
+		Iterator<Reservation> reservas = getReservations().iterator();
+		while (reservas.hasNext()) {
+			Reservation reservaAtual = reservas.next();
+
+			result += "Quartos escolhidos para essa reserva: \n";
+			int j = 0;
+			while (j < reservaAtual.getRooms().size()) {
+				result += reservaAtual.getRooms().get(j) + "\n";
+				j++;
+			}
+		}
+		
+		return result;
 	}
 }

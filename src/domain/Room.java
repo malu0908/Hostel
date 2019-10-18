@@ -9,7 +9,9 @@ public class Room {
 	private double dimension;
 	private DailyRate rate;
 	
-	public Room() {
+	public Room(int number, double dimension) {
+		this.number = number;
+		this.dimension = dimension;
 	    rate = new DailyRate(this.dimension * 0.2);
 	}
 	

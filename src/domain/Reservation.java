@@ -2,8 +2,7 @@ package domain;
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.*;
 
 public class Reservation {
 	private String reservationCode;
@@ -12,31 +11,19 @@ public class Reservation {
 	private LocalDate checkinDate;
 	private LocalDate checkoutDate;
 	private Payment payment;
-	private ArrayList<Room> rooms = new ArrayList();
+	private List<Room> rooms;
 
 	public Reservation() {
-
+		this(0, null, null, null);
 	}
 
-	public Reservation(int numberOfGuests, String reservationCode, String checkin, String checkout) {
+	public Reservation(int numberOfGuests, LocalDate reservationDate, LocalDate checkin, LocalDate checkout) {
 		this.numberOfGuests = numberOfGuests;
-		this.reservationCode = reservationCode;
 		this.reservationDate = LocalDate.now();
-
-		String str1[] = checkin.split("/");
-		int dayIn = Integer.parseInt(str1[1]);
-		int monthIn = Integer.parseInt(str1[0]);
-		int yearIn = Integer.parseInt(str1[2]);
-
-		this.checkinDate = LocalDate.of(yearIn, monthIn, dayIn);
-
-		String str2[] = checkout.split("/");
-		int dayOut = Integer.parseInt(str2[1]);
-		int monthOut = Integer.parseInt(str2[0]);
-		int yearOut = Integer.parseInt(str2[2]);
-
-		this.checkoutDate = LocalDate.of(yearOut, monthOut, dayOut);
-
+		this.checkinDate = checkin;
+		this.checkoutDate = checkout;
+		
+		this.rooms = new ArrayList<>();
 	}
 
 	Payment createPayment(String type) {
@@ -48,14 +35,15 @@ public class Reservation {
 	double calculateTotalAmount() {
 		int i = 0;
 		double sum = 0.0;
-		while (!rooms.isEmpty()) {
+		while (i < rooms.size()) {
 			sum = sum + rooms.get(i).getRate().getPrice();
+			i++;
 		}
 		Period p = Period.between(this.checkinDate, this.checkoutDate);
 		return sum * p.getDays();
 	}
 
-	public ArrayList<Room> getRooms() {
+	public List<Room> getRooms() {
 		return rooms;
 	}
 
@@ -103,4 +91,7 @@ public class Reservation {
 		this.checkoutDate = checkOutDate;
 	}
 
+	public String toString() {
+		return "< Reservation: reservationDate = " + this.reservationDate + ", checkinDate = " + this.checkinDate + ", checkoutDate = " + this.checkoutDate + " >";
+	}
 }

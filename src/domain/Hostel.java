@@ -45,7 +45,6 @@ public class Hostel {
      
     public boolean makeReservation(Customer customer, String rsDate, String checkIn, String checkOut)
     {
-    	Reservation reservation = new Reservation();
     	
     	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     	LocalDate date1 = LocalDate.parse(rsDate,formatter);
@@ -55,10 +54,8 @@ public class Hostel {
     	
     	DateTimeFormatter formatter3 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     	LocalDate date3 = LocalDate.parse(checkOut,formatter3);
-    	
-    	reservation.setReservationDate(date1);
-    	reservation.setCheckinDate(date2);
-    	reservation.setCheckOutDate(date3);
+
+    	Reservation reservation = new Reservation(0, date1, date2, date3);
     	
         customer.setReservations(reservation);      
         reservations.add(reservation);
@@ -67,7 +64,7 @@ public class Hostel {
     }
     
     public boolean makePayment(double amountTendered,
-    		String typeOfPayment, Reservation reserv) throws PaymentInsufficientException{
+    	String typeOfPayment, Reservation reserv) throws PaymentInsufficientException{
     	Payment payment = reserv.createPayment(typeOfPayment);
     	payment.setAmount(reserv.calculateTotalAmount());
     	if(amountTendered < payment.getAmount())
@@ -77,9 +74,7 @@ public class Hostel {
     
     public boolean createRoom(int number, double dimension)   
     {
-    	Room room = new Room();
-    	room.setNumber(number);
-    	room.setDimension(dimension);
+    	Room room = new Room(number, dimension);
     	if(rooms.contains(room) || dimension < 0.0)
     		return false;
     	addRoom(room);
@@ -96,7 +91,8 @@ public class Hostel {
     {
     	for(int i = 0;i< rooms.size();i++)
     	{
-    		if(rooms.get(i).equals(number))
+    		Room n = new Room(number, 0.0);
+    		if(rooms.get(i).equals(n))
     			return rooms.get(i);
     	}
         throw new RoomNotFoundException("Room not found!", number);
@@ -112,15 +108,13 @@ public class Hostel {
 		throw new CustomerNotFoundException("Client not found", name, lastName);
     }
     
-    public Reservation searchReservationByCustomerName(String name, String lastName) throws ReservationNotFoundException
+    public Set<Reservation> searchReservationByCustomerName(String name, String lastName) throws ReservationNotFoundException
     {
     	for(int i = 0;i< customers.size();i++)
 		{   
 			if(customers.get(i).equals(name,lastName))
 			{
-				Iterator<Reservation> iter = customers.get(i).getReservations().iterator();
-				while(iter.hasNext());
-    			return iter.next();
+				return customers.get(i).getReservations();
 			}
 		}
     	throw new ReservationNotFoundException("Reservation not found!", name, lastName);
@@ -158,6 +152,10 @@ public class Hostel {
   	
   	public void setPhone(String phone) {
   		this.phone = phone;
+  	}
+  	
+  	public Set<Reservation> getReservations() {
+  		return this.reservations;
   	}
   	
 }
