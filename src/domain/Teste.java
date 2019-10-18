@@ -103,7 +103,6 @@ public class Teste {
 		i = 0;
 		while (i < hostel.getCustomers().size()) {
 			System.out.println(hostel.getCustomers().get(i));
-			System.out.println();
 			i++;
 		}
 
