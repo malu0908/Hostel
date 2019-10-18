@@ -1,10 +1,12 @@
 package domain;
+import java.util.*;
 import java.util.Set;
 
 public class Hostel {
 	public static final Hostel INSTANCE = new Hostel();
     private String name;
     private String phone;
+    private List<Customer> customers = new ArrayList<>();
     
     private Hostel()
     {
@@ -15,7 +17,7 @@ public class Hostel {
         return INSTANCE;
     } 
     
-    public boolean createCustomer(String title, String lastName, String dateOfBirth, String adress,String zipCode, String city, String state, String country,String email)
+    public boolean createCustomer(String title, String firstName, String lastName, String dateOfBirth, String adress,String zipCode, String city, String state, String country,String email)
     {
         return true;
     }
@@ -70,5 +72,9 @@ public class Hostel {
     public Set<Reservation> searchReservations(String name, String lastName)
     {
         return null;
+    }
+    
+    public List<Customer> getCustomers() {
+    	return customers;
     }
 }
