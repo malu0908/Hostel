@@ -25,7 +25,7 @@ public class Teste {
 		hostel.createRoom(2, 2000);
 		hostel.createRoom(3, 3000);
 		
-		//adicionando quartos
+//		adicionando quartos
 		Room r = new Room();
 		r.setDimension(1500);
 		r.setNumber(5);
@@ -35,5 +35,27 @@ public class Teste {
 		s.setDimension(1700.30);
 		s.setNumber(6);
 		hostel.addRoom(s);
+		
+		//procurando room pelo numero
+		hostel.searchRoomByNumber(1);
+		hostel.searchRoomByNumber(2);
+		hostel.searchRoomByNumber(3);
+		hostel.searchRoomByNumber(5);
+		hostel.searchRoomByNumber(6);
+		try {
+			hostel.searchRoomByNumber(7);
+		} catch(RoomNotFoundException ex) {
+			System.out.println(ex.getMessage());
+		}
+
+		//procurando customer pelo nome
+		hostel.searchCustomerByName("Maria Luiza", "Fernandes");
+		hostel.searchCustomerByName("Otávio Augusto", "Faria");
+		hostel.searchCustomerByName("Luana de Jesus", "Carvalho");			
+		try {
+			hostel.searchCustomerByName("Paulo Henrique", "de Oliveira");			
+		} catch(CustomerNotFoundException ex) {
+			System.out.println(ex.getMessage());
+		}
 	}
 }

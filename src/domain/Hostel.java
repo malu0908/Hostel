@@ -40,7 +40,7 @@ public class Hostel {
     
     public Room searchRoomByNumber(int number) throws RoomNotFoundException
     {
-        return null;
+        throw new RoomNotFoundException("Quarto não encontrado!", number);
     }
     
     public String getName() {
@@ -61,12 +61,12 @@ public class Hostel {
 	
 	public Customer searchCustomerByName(String name, String lastName) throws CustomerNotFoundException
     {
-        return null;
+		throw new CustomerNotFoundException("Cliente não encontrado!", name, lastName);
     }
     
     public Customer searchReservationByCustomerName(String name, String lastName) throws ReservationNotFoundException
     {
-        return null;
+    	throw new ReservationNotFoundException("Reserva não encontrada!", name, lastName);
     }
     
     public Set<Reservation> searchReservations(String name, String lastName)
