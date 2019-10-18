@@ -10,6 +10,11 @@ public class Reservation {
 	private LocalDate checkoutDate;
 	private Payment payment;
 
+	public Reservation()
+	{
+		
+	}
+	
 	public Reservation(int numberOfGuests, String reservationCode, String checkin, String checkout) {
 		this.numberOfGuests = numberOfGuests;
 		this.reservationCode = reservationCode;
@@ -62,24 +67,24 @@ public class Reservation {
 		return reservationDate;
 	}
 
-	public void setReservationDate(int year, int month, int day) {
-		this.reservationDate = LocalDate.of(year, month, day);
+	public void setReservationDate(LocalDate reservationDate) {
+		this.reservationDate = reservationDate;
 	}
 
 	public LocalDate getCheckinDate() {
 		return checkinDate;
 	}
 
-	public void setCheckinDate(int year, int month, int day) {
-		this.checkinDate = LocalDate.of(year, month, day);
+	public void setCheckinDate(LocalDate checkInDate) {
+		this.checkinDate = checkInDate;
 	}
 
 	public LocalDate getCheckoutDate() {
 		return checkoutDate;
 	}
 
-	public void setCheckoutDate(int year, int month, int day) {
-		this.checkoutDate = LocalDate.of(year, month, day);
+	public void setCheckOutDate(LocalDate checkOutDate) {
+		this.checkoutDate = checkOutDate;
 	}
 	
 }

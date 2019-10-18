@@ -9,11 +9,13 @@ public class Hostel {
     private String phone;
     private List<Customer> customers;
     private List<Room> rooms;
+    private Set<Reservation> reservations;
     
     private Hostel()
     {
     	customers = new LinkedList<>();
     	rooms = new LinkedList<>();
+    	reservations = new HashSet<>();
     }   
     public static Hostel getHostel()
     {
@@ -43,6 +45,24 @@ public class Hostel {
     
     public boolean makeReservation(Customer customer, String rsDate, String checkIn, String checkOut)
     {
+    	Reservation reservation = new Reservation();
+    	
+    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    	LocalDate date1 = LocalDate.parse(rsDate,formatter);
+    	
+    	DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    	LocalDate date2 = LocalDate.parse(checkIn,formatter2);
+    	
+    	DateTimeFormatter formatter3 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    	LocalDate date3 = LocalDate.parse(checkOut,formatter3);
+    	
+    	reservation.setReservationDate(date1);
+    	reservation.setCheckinDate(date2);
+    	reservation.setCheckOutDate(date3);
+    	
+        customer.setReservations(reservation);      
+        reservations.add(reservation);
+        
         return true;
     }
     
@@ -63,24 +83,49 @@ public class Hostel {
     	rooms.add(room);
     }
     
-    public Room searchRoomByNumber(int number) throws RoomNotFoundException
+    @SuppressWarnings("unlikely-arg-type")
+	public Room searchRoomByNumber(int number) throws RoomNotFoundException
     {
+    	for(int i = 0;i< rooms.size();i++)
+    	{
+    		if(rooms.get(i).equals(number))
+    			return rooms.get(i);
+    	}
         throw new RoomNotFoundException("Room not found!", number);
     }
     
 	public Customer searchCustomerByName(String name, String lastName) throws CustomerNotFoundException
     {
+		for(int i = 0;i< customers.size();i++)
+		{
+			if(customers.get(i).equals(name,lastName))
+    			return customers.get(i);
+		}
 		throw new CustomerNotFoundException("Client not found", name, lastName);
     }
     
-    public Customer searchReservationByCustomerName(String name, String lastName) throws ReservationNotFoundException
+    public Reservation searchReservationByCustomerName(String name, String lastName) throws ReservationNotFoundException
     {
+    	for(int i = 0;i< customers.size();i++)
+		{   
+			if(customers.get(i).equals(name,lastName))
+			{
+				Iterator<Reservation> iter = customers.get(i).getReservations().iterator();
+				while(iter.hasNext());
+    			return iter.next();
+			}
+		}
     	throw new ReservationNotFoundException("Reservation not found!", name, lastName);
     }
     
     public Set<Reservation> searchReservations(String name, String lastName)
     {
-        return null;
+    	for(int i = 0;i< customers.size();i++)
+		{
+			if(customers.get(i).equals(name,lastName))
+    			return customers.get(i).getReservations();
+		}
+    	return null;
     }
     
     public List<Customer> getCustomers() {

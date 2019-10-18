@@ -1,8 +1,7 @@
 package domain;
 
 import java.time.LocalDate;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Customer {
 	private String title;
@@ -11,24 +10,24 @@ public class Customer {
 	private LocalDate birthday;
 	private String email;
 	private Address address;
-	private List<Reservation> reservations;
+	private Set<Reservation> reservations;
 
 	public Customer(String title) {
 		this.title = title;
-		reservations = new LinkedList<>();
+		reservations = new HashSet<>();
 	}
 
 	public Customer(String title, String firstname) {
 		this.title = title;
 		this.firstname = firstname;
-		reservations = new LinkedList<>();
+		reservations = new HashSet<>();
 	}
 
 	public Customer(String title, String firstname, String lastname) {
 		this.title = title;
 		this.firstname = firstname;
 		this.lastname = lastname;
-		reservations = new LinkedList<>();
+		reservations = new HashSet<>();
 	}
 
 	public Customer(String title, String firstname, String lastname, LocalDate birthday) {
@@ -36,7 +35,7 @@ public class Customer {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.birthday = birthday;
-		reservations = new LinkedList<>();
+		reservations = new HashSet<>();
 	}
 
 	public String getTitle() {
@@ -89,7 +88,7 @@ public class Customer {
 	}
 	
 
-	public List<Reservation> getReservations() {
+	public Set<Reservation> getReservations() {
 		return reservations;
 	}
 
@@ -97,16 +96,9 @@ public class Customer {
 		this.reservations.add(reservation);
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (!(obj instanceof Customer))
-			return false;
-		Customer other = (Customer) obj;
-		if (!this.title.equals(other.title) || !this.firstname.equals(other.firstname)
-				|| !this.lastname.equals(other.lastname) || !this.birthday.equals(other.birthday)
-				|| !this.email.equals(other.email))
-			return false;
-		return true;
+
+	public boolean equals(String name, String lastName) {
+		return (this.firstname == name && this.lastname == lastName) ? true : false;
 	}
 
 	@Override
