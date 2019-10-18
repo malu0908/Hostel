@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Iterator;
+
 public class Teste {
 	public static void main(String[] args) {
 		//atribuindo o singleton hostel a uma variavel
@@ -56,6 +58,29 @@ public class Teste {
 			hostel.searchCustomerByName("Paulo Henrique", "de Oliveira");			
 		} catch(CustomerNotFoundException ex) {
 			System.out.println(ex.getMessage());
+		}
+		
+		//procurando reserva
+		hostel.searchReservationByCustomerName("Maria Luiza", "Fernandes");
+		hostel.searchReservationByCustomerName("Luana de Jesus", "Carvalho");
+		hostel.searchReservationByCustomerName("Otávio Augusto", "Faria");
+		try {
+			hostel.searchReservationByCustomerName("Julia", "Cabral");
+		} catch(ReservationNotFoundException ex) {
+			System.out.println(ex.getMessage());
+		}
+		
+		//printando os clientes
+		Iterator<Customer> it = hostel.getCustomers().iterator();
+		while(it.hasNext()) {
+			System.out.println(it.next());
+		}
+		System.out.println();
+		
+		//printando os quartos
+		Iterator<Room> i = hostel.getRooms().iterator();
+		while(i.hasNext()) {
+			System.out.println(i.next());
 		}
 	}
 }
