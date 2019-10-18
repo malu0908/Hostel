@@ -1,7 +1,8 @@
 package domain;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Customer {
 	private String title;
