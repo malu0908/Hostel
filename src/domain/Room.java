@@ -10,7 +10,7 @@ public class Room {
 	private DailyRate rate;
 	
 	public Room() {
-	    rate = new DailyRate();
+	    rate = new DailyRate(this.dimension * 0.2);
 	}
 	
 	public DailyRate getRate() {
