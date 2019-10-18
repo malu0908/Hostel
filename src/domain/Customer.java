@@ -1,6 +1,7 @@
 package domain;
 
 import java.time.LocalDate;
+import java.util.*;
 
 public class Customer {
 	private String title;
@@ -9,20 +10,24 @@ public class Customer {
 	private LocalDate birthday;
 	private String email;
 	private Address address;
+	private List<Reservation> reservations;
 
 	public Customer(String title) {
 		this.title = title;
+		reservations = new LinkedList<>();
 	}
 
 	public Customer(String title, String firstname) {
 		this.title = title;
 		this.firstname = firstname;
+		reservations = new LinkedList<>();
 	}
 
 	public Customer(String title, String firstname, String lastname) {
 		this.title = title;
 		this.firstname = firstname;
 		this.lastname = lastname;
+		reservations = new LinkedList<>();
 	}
 
 	public Customer(String title, String firstname, String lastname, LocalDate birthday) {
@@ -30,6 +35,7 @@ public class Customer {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.birthday = birthday;
+		reservations = new LinkedList<>();
 	}
 
 	public String getTitle() {
@@ -79,6 +85,15 @@ public class Customer {
 	
 	public void setAddress(String address, String zipCode, String city, String state, String country) {
 		this.address = new Address(address, zipCode, city, state, country);
+	}
+	
+
+	public List<Reservation> getReservations() {
+		return reservations;
+	}
+
+	public void setReservations(Reservation reservation) {
+		this.reservations.add(reservation);
 	}
 
 	@Override
