@@ -1,12 +1,12 @@
 package domain;
 import java.util.*;
-import java.util.Set;
 
 public class Hostel {
 	public static final Hostel INSTANCE = new Hostel();
     private String name;
     private String phone;
     private List<Customer> customers = new ArrayList<>();
+    private List<Room> rooms = new ArrayList<>();
     
     private Hostel()
     {
@@ -76,5 +76,9 @@ public class Hostel {
     
     public List<Customer> getCustomers() {
     	return customers;
+    }
+    
+    public List<Room> getRooms() {
+    	return rooms;
     }
 }

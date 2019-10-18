@@ -14,5 +14,20 @@ public class Teste {
 		hostel.makeReservation(hostel.getCustomers().get(0), "18/10/2019", "01/11/2019", "07/08/2019");
 		hostel.makeReservation(hostel.getCustomers().get(1), "20/11/2019", "11/12/2019", "15/12/2019");
 		hostel.makeReservation(hostel.getCustomers().get(2), "27/10/2019", "28/10/2019", "29/08/2019");
+	
+		//fazendo pagamentos
+		hostel.makePayment(700.0, "CashPayment");
+		hostel.makePayment(500.0, "CheckPayment");
+		hostel.makePayment(200.0, "CreditCardPayment");
+		
+		//criando quartos
+		hostel.createRoom(1, 1000);
+		hostel.createRoom(2, 2000);
+		hostel.createRoom(3, 3000);
+		
+		//adicionando quartos
+		hostel.addRoom(hostel.getRooms().get(0));
+		hostel.addRoom(hostel.getRooms().get(1));
+		hostel.addRoom(hostel.getRooms().get(2));
 	}
 }
