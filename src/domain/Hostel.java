@@ -66,8 +66,12 @@ public class Hostel {
         return true;
     }
     
-    public boolean makePayment(double amountTendered, String typeOfPayment) {
-    	return true;
+    public boolean makePayment(double amountTendered, String typeOfPayment, Reservation reserv) {
+    	Payment payment = reserv.createPayment(typeOfPayment);
+    	payment.setAmount(reserv.calculateTotalAmount());
+    	if(amountTendered >= payment.getAmount())
+    		return true;
+    	return false;
     }
     
     public boolean createRoom(int number, double dimension)   
