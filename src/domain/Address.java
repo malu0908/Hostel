@@ -41,11 +41,11 @@ public class Address {
         this.city = city;
     }
     
-    public String getCoutry(){
+    public String getCountry(){
         return country;
     }
     
-    public void setCoutry(){
+    public void setCountry(){
         this.country = country;
     }
     
