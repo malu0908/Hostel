@@ -9,7 +9,7 @@ package domain;
  * @author ariela
  */
 public class Address {
-
+	//comentario de teste para uso pagliaGod
     private String address;
     private String zipCode;
     private String city;
