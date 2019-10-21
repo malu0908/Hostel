@@ -1,6 +1,7 @@
 package domain;
 
 public class CashPayment extends Payment{
+	//modifica para demonstrar modificacoes
 	private double amountTendered;
 
 	
