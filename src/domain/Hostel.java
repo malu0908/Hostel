@@ -4,6 +4,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Hostel {
+	//teste de master para mater/origin via commit and push
 	public static final Hostel INSTANCE = new Hostel();
     private String name;
     private String phone;
